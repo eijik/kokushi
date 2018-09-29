@@ -1,0 +1,19 @@
+.page-header
+  .mb-1.mt-3
+    h3.fl= Subject.model_name.human + t('base.actions.index')
+    .fr= link_to new_subject_path, class: 'btn btn-outline-primary' do
+      span.glyphicon.glyphicon-plus
+        = t('base.actions.new')
+    .clearfix
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th= Subject.human_attribute_name(:name)
+        th
+    tbody
+      - @subjects.each do | subject |
+        tr
+          td= link_to subject.name, subject_path(id: subject.id) 
+          td= link_to t('base.actions.edit'), edit_subject_path(id:subject.id)

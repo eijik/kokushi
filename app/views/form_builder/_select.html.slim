@@ -1,0 +1,10 @@
+.form-group[class="#{(f.object.errors.include?(col) ? 'has-error' : '')} #{opts[:add_class]}"]
+  = f.label col, { class: "control-label" }
+  - options = opts[:values].present? ? opts[:values] : f.object.class.send(col).options
+  = f.select col, options, { include_blank: t("helpers.select.prompt") }.merge(opts[:select]||{}), {class: "form-control #{f.object.class.to_s.underscore.singularize}-#{col}"}.merge(opts[:html]||{})
+  - err_col = col.to_s.gsub(/_id\z/, '').try!(&:to_sym)
+  - if f.object.errors.full_messages_for(err_col).empty? && opts[:message].present?
+    p.help-block= opts[:message]
+  - else
+    - f.object.errors.full_messages_for(err_col).each do |message|
+      p.help-block= message

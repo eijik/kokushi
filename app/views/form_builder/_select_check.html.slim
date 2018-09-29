@@ -1,0 +1,8 @@
+.form-group[class="#{(f.object.errors.include?(col) ? 'has-error' : '')} #{opts[:add_class]}"]
+  = f.label col, { class: "control-label" }
+  = f.select col, [false, true].map{|i| [ I18n.t("enumerize.#{f.object.class.to_s.underscore}.#{col}.#{i}"), "#{i}" ] }, { include_blank: nil }.merge(opts[:select]||{}), (opts[:input]||{}).merge({class: "form-control #{f.object.class.to_s.underscore.singularize}-#{col} #{opts[:input].try{|o| o[:class]}}"})
+  - if f.object.errors.full_messages_for(col).empty? && opts[:message].present?
+    p.help-block= opts[:message]
+  - else
+    - f.object.errors.full_messages_for(col).each do |message|
+      p.help-block= message

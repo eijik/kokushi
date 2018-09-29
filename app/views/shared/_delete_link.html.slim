@@ -1,0 +1,10 @@
+// 　delete_link
+//  clazz(クラス)を指定してモデル名を表示できる削除リンク。 
+//  = render 'shared/delete_link', path: (url_path)　, clazz: '(クラス名)'
+//  
+/- if can? :delete, clazz
+- if true
+  p.text-xs-right
+    = link_to path, class: 'text-underline text-muted', method: :delete, title: "実行確認", data: { confirm: "本当にこの#{clazz.model_name.human}を削除しますか？" } do
+      i.zmdi.zmdi-delete.p-r-h
+      | この#{clazz.model_name.human}を削除する

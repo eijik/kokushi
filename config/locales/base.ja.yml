@@ -1,0 +1,23 @@
+ja:
+  base:
+    actions:
+      index: 一覧
+      show: 詳細
+      edit: 編集
+      update: 編集
+      delete: 削除
+      destroy: 削除
+      new: 登録
+      create: 登録
+      back: 戻る
+      save: 保存
+      answer: 回答する
+    confirm:
+      delete: 本当に削除してもいいですか？
+    flash:
+      created: は登録されました。
+      updated: は更新されました。
+      destroyed: は削除されました。
+    datetime:
+      created_at: 作成日時
+

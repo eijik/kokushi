@@ -1,0 +1,4 @@
+.page-header
+  .mb-1.mt-3
+    h3= Section.model_name.human + t('base.actions.edit')
+= render 'form', url: subject_section_path, page: :edit

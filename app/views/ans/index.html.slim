@@ -1,0 +1,23 @@
+.page-header
+  = link_to new_an_path, class: 'btn btn-primary' do 
+    span.glyphicon.glyphicon-plus
+    |  New An
+  h1
+    | Listing ans
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+        th
+        th
+    tbody
+      - @ans.each do | an |
+        tr
+          td
+            = link_to 'Show', an
+          td
+            = link_to 'Edit', edit_an_path(an) 
+          td
+            = link_to 'Destroy', an, method: :delete, data: { confirm: 'Are you sure?' } 

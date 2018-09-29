@@ -1,0 +1,11 @@
+= paginate models
+/ul.pagination
+  li.page-item
+    = link_to '', :class => 'page-link' do
+      i.zmdi.zmdi-chevron-left
+  li.page-item.active= link_to '1', '', :class => 'page-link'
+  li.page-item= link_to '2', '', :class => 'page-link'
+  li.page-item= link_to '3', '', :class => 'page-link'
+  li.page-item
+    = link_to '', :class => 'page-link' do
+      i.zmdi.zmdi-chevron-right

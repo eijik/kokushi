@@ -1,0 +1,5 @@
+.page-header
+  .mb-1.mt-3
+    h3= Subject.model_name.human + t('base.actions.new')
+
+= render 'form', url:subjects_path, page: :new

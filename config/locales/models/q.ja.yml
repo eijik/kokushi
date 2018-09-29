@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      q: 選択肢
+    attributes:
+      q:
+        id: ID
+        name: 選択肢

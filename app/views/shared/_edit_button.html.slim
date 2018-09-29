@@ -1,0 +1,9 @@
+// 　edit_link
+//  編集ボタン。 
+//  = render 'shared/edit_button', path: (url_path)　, clazz: '(クラス名)'
+//  
+- if can? :update, clazz
+  .pull-xs-right
+    = link_to path, class: 'btn btn-secondary btn-sm' do
+      i.zmdi.zmdi-edit.p-r-h
+      | 情報の変更

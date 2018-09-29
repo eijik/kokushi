@@ -1,0 +1,24 @@
+-# setting
+ruby:
+  add_class ||= ""    # form-group に追加するクラス
+  ng_model  ||= ""
+  grid      ||= "3:9" # grid 分割の比
+  label     ||= nil
+  type      ||= "text"
+
+-# main
+.form-group[class="#{(f.object.errors.include?(col) ? 'has-error' : '')} #{add_class}"]
+  = f.label col, label, { class: "col-sm-#{grid.split(':')[0]} control-label"}
+  div[class="col-sm-#{grid.split(':')[1]}"]
+    - if type=="date_select"
+      .input-group
+        =raw sprintf( f.date_select(col, { use_month_numbers: true, start_year: 1970, end_year: Time.current.year, default: Date.new(2000,1,1), date_separator: "%s" },{ class:"form-control" }), "<span class='input-group-addon'>年</span>","<span class='input-group-addon'>月</span>") + "<span class='input-group-addon'>日</span>"
+    - elsif type=="date_field"
+      = f.date_field col, { class:"form-control form-control-datepicker" }
+    - else
+      - if ng_model.blank?
+        = f.text_field col, { class:"datepicker form-control form-control-datepicker" }
+      - else
+        = f.text_field col, { class:"datepicker form-control form-control-datepicker", "ng-model"=>ng_model }
+    - f.object.errors.full_messages_for(col).each do |message|
+      p.help-block= message

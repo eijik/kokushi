@@ -1,0 +1,8 @@
+- %w(prefecture address_city address_street).each do |name|
+  - instance_variable_set "@#{name}_name", "#{m.class.to_s.underscore}[#{name}]"
+- prefecture_names = JpPrefecture::Prefecture.all.map{|p| [p.name, p.code] }
+= f.text_parts :postal_code, add_class: :required, columns: 6, input: { placeholder: '郵便番号を入力', onkeyup: "AjaxZip3.zip2addr(this,'','#{@prefecture_name}','#{@address_city_name}','#{@address_street_name}');" }
+= f.select_parts :prefecture, columns: 6, values: prefecture_names, add_class: :required, input: { placeholder: '都道府県を入力' }
+= f.text_parts :address_city, add_class: :required, input: { placeholder: '市区町村を入力' } 
+= f.text_parts :address_street, add_class: :required, input: { placeholder: '番地を入力' }
+= f.text_parts :address_building, input: { placeholder: '建物を入力' }

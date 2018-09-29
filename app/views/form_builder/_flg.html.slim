@@ -1,0 +1,11 @@
+-# setting
+ruby:
+  add_class ||= ''
+  grid      ||= "3:9" # grid 分割の比
+
+.form-group[class="#{(f.object.errors.include?(col) ? 'has-error' : '')} #{add_class}"]
+  div[class="col-sm-offset-#{grid.split(':')[0]} col-sm-#{grid.split(':')[1]}"]
+    .checkbox.pull-left
+      = f.label col do
+        = f.check_box col
+        = f.object.class.human_attribute_name(col.to_sym)

@@ -1,0 +1,15 @@
+.form-group[class="#{(f.object.errors.include?(col) ? 'has-error' : '')} #{opts[:add_class]}"]
+  = f.label col, { class: "control-label" }
+  .input-group
+    - date_value = f.object.send("#{col}_date") || Date.current.to_s(:ymd)
+    = f.date_field "#{col}_date", value: date_value.try!(:gsub, /\//,"-"), class: "form-control form-sm"
+    .input-group-addon style="border: none; padding: 3px;"
+    = f.select "#{col}_hour", (0..23).to_a.map { |v| "%02d" % v }, {}, class: 'form-control form-sm'
+    .input-group-addon style="border: none; padding: 3px;" = ":"
+    = f.select "#{col}_minute", (0..59).to_a.map { |v| "%02d" % v }, {}, class: 'form-control form-sm'
+
+  - if f.object.errors.full_messages_for(col).empty? && opts[:message].present?
+    p.help-block= opts[:message]
+  - else
+    - f.object.errors.full_messages_for(col).each do |message|
+      p.help-block= message

@@ -1,0 +1,30 @@
+.form-group[class="#{(f.object.errors.include?(col) ? 'has-error' : '')} #{opts[:add_class]}"]
+  = f.label col, { class: "control-label col-sm-3" }
+  .col-sm-9
+    = f.file_field col, opts
+    = f.hidden_field "#{col}_cache"
+    - unless opts[:hidden_remove_file]
+      label.checkbox-inline
+        = f.check_box "remove_#{col}"
+        span ファイルを削除する
+    - if f.object.errors.full_messages_for(col).empty? && opts[:message].present?
+      p.help-block= opts[:message]
+    - else
+      - f.object.errors.full_messages_for(col).each do |message|
+        p.help-block= message
+
+- if f.object.send(col).present?
+  .form-group.form-image-preview
+    .col-sm-offset-3.col-sm-9
+      img(src=f.object.send(col).thumb.url)
+      //img(src=f.object.send(col).thumb1.url)
+      //img(src=f.object.send(col).thumb2.url)
+      //img(src=f.object.send(col).thumb3.url)
+      //img(src=f.object.send(col).thumb4.url)
+      //img(src=f.object.send(col).thumb5.url)
+      //img(src=f.object.send(col).thumb6.url)
+      //img(src=f.object.send(col).thumb7.url)
+      //img(src=f.object.send(col).thumb8.url)
+      //img(src=f.object.send(col).thumb9.url)
+      //= video_tag f.object.send(col).url, controls: true
+

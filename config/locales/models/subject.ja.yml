@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      subject: 科目
+    attributes:
+      subject:
+        id: ID
+        name: 科目名
+        content: お知らせ内容
+        deleted_at: 削除日時
+        updated_at: 更新日
+        created_at: 作成日
+
+

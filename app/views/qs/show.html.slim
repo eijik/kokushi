@@ -1,0 +1,10 @@
+.page-header
+  .mb-1.mt-3
+    h3.fl= @q.name
+    .fr.m-l-q= link_to new_subject_section_qn_q_path(subject_id:@subject, section_id: @section, qn_id:@qn.id), class: 'btn btn-primary' do
+      span.glyphicon.glyphicon-plus
+        = t('base.actions.new')
+    .fr= link_to subject_section_path(subject_id:@subject, id: @section), class: 'btn btn-primary' do
+      span.glyphicon.glyphicon-plus
+        = t('base.actions.back')
+    .clearfix

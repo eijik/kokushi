@@ -1,0 +1,11 @@
+= f.file_field col, opts
+= f.hidden_field "#{col}_cache"
+- if f.object.errors.full_messages_for(col).empty? && opts[:message].present?
+  p.help-block= opts[:message]
+- else
+  - f.object.errors.full_messages_for(col).each do |message|
+    p.help-block= message
+
+- if f.object.send(col).present?
+  .form-image-preview
+    img(src=f.object.send(col).thumb.url)

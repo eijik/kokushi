@@ -1,0 +1,23 @@
+.page-header
+  = link_to new_subject_section_path, class: 'btn btn-primary' do 
+    span.glyphicon.glyphicon-plus
+    |  New Section
+  h1
+    | Listing sections
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+        th
+        th
+    tbody
+      - @sections.each do | section |
+        tr
+          td
+            = link_to 'Show', subject_section_path(subject_id: @subject)
+          td
+            = link_to 'Edit', edit_subject_section_path(subject_id: @subject) 
+          td
+            = link_to 'Destroy', subject_section_path(subject_id: @subject), method: :delete, data: { confirm: 'Are you sure?' } 

@@ -1,0 +1,11 @@
+.form-group[class="#{(f.object.errors.include?(col) ? 'has-error' : '')} #{opts[:add_class]}"]
+  = f.label col, { class: "control-label col-sm-3" }
+  .col-sm-9
+    .checkboxes
+      label.checkbox-inline
+        = f.check_box col
+        - if opts[:label_name].present?
+          = opts[:label_name]
+    - f.object.errors.full_messages_for(col).each do |message|
+      p.help-block= message
+  .clearfix

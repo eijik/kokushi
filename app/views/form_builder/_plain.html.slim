@@ -1,0 +1,10 @@
+-# setting
+ruby:
+  add_class ||= ''
+  grid      ||= "3:9" # grid 分割の比
+
+-# main
+.form-group
+  = f.label col, { class: "col-sm-#{grid.split(':')[0]} control-label" }
+  div[class="col-sm-#{grid.split(':')[1]}"]
+    p.form-control-static= f.object.send("view_#{col}")

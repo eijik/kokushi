@@ -1,0 +1,6 @@
+- @breadcrumb = [{name: @subject.name, link: subject_path(id:@subject.id)}, {name: @section.name, link:subject_section_path(subject_id:@subject.id, id:@section.id)}, {name: @qn.name, link: edit_subject_section_qn_path(subject_id:@subject.id, section_id:@section.id ,id:@qn.id)}]
+.page-header
+  .mb-1.mt-3
+    h3= Q.model_name.human + t('base.actions.new')
+
+= render 'form', url: subject_section_qn_qs_path, page: :new

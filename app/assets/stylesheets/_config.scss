@@ -1,0 +1,186 @@
+
+// _config.scss
+// -----------------------------------
+
+// Themes
+// -----
+
+$body-bg:                       #F4F4F4 !default;
+$gray-dark:                     #333333 !default;
+$gray:                          #777777 !default;
+$gray-light:                    #aeaeae !default;
+$gray-lighter:                  #cccccc !default;
+$gray-lightest:                 #f7f7f9 !default;
+$gray-blue:                     #4b636d !default;
+$body-color:                    $gray-dark !default;
+$brand-primary:                 #fed400 !default;
+// $brand-secondary:               #956134 !default;
+$brand-secondary:               #66391B !default;
+$link-color:                    $body-color !default;
+
+$red:                           #ff9999 !default;
+$pink:                          #fb9fc3 !default;
+$purple:                        #daa7d7 !default;
+$blue:                          #95afe5 !default;
+$blue-light:                    #8ed0cc !default;
+$green:                         #92cb86 !default;
+$yellow:                        #f6c74d !default;
+$orange:                        #ffb152 !default;
+// https://mdbootstrap.com/css/colors/
+$red-lighten-1:                 #ef5350;
+$pink-lighten-1:                #ec407a;
+$purple-lighten-1:              #ab47bc;
+$deep-orange-lighten-1:         #ff7043;
+$grey-lighten-1:                #bdbdbd;
+$grey-lighten-2:                #e0e0e0;
+$grey-darken-1:                 #757575;
+
+$red-darken-2:                  #d32f2f;
+$red-darken-3:                  #c62828;
+$red-darken-4:                  #b71c1c;
+
+$pink-darken-2:                 #c2185b;
+
+$purple-darken-2:               #7b1fa2;
+$orange-darken-2:               #f57c00;
+$deep-orange-darken-2:          #e64a19;
+// Components Border Radius
+// -----
+
+$border-radius:                 8px !default;
+$border-radius-lg:              8px !default;
+$border-radius-sm:              8px !default;
+
+// Type
+// -----
+
+// Font Family
+$font-family-sans-serif:        游ゴシック, YuGothic, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', Arial, メイリオ, Meiryo, sans-serif !default;
+$font-family-serif:             "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif !default;
+
+// Font Size
+$font-size-root:                14px !default;
+$font-size-lg:                  1.05rem !default;
+$font-size-xs:                  .76rem !default;
+$font-size-h1:                  1.35rem !default;
+$font-size-h2:                  1.3rem !default;
+$font-size-h3:                  1.2rem !default;
+$font-size-h4:                  1.15rem !default;
+$font-size-h5:                  1.1rem !default;
+$font-size-h6:                  1rem !default;
+
+$jumbotron-padding:             0 !default;
+$jumbotron-bg:                  #fff !default;
+
+// Spacing
+// -----
+
+$spacer:                        1rem !default;
+$spacer-x:                      $spacer !default;
+$spacer-y:                      $spacer !default;
+$dropdown-margin-top:           0 !default;
+$headings-font-weight:          700 !default;
+$headings-margin-bottom:        $spacer * 1.5 !default;
+$card-spacer-x:                 $spacer !default;
+$card-spacer-y:                 $spacer !default;
+
+// Breadcrumbs
+// -----
+
+$breadcrumb-padding-y:          0 !default;
+$breadcrumb-padding-x:          0 !default;
+$breadcrumb-item-padding:       0 !default;
+$breadcrumb-bg:                 none !default;
+$breadcrumb-divider-color:      #666 !default;
+$breadcrumb-active-color:       #888 !default;
+$breadcrumb-divider:            '\f2fb' !default;
+
+// Button
+// -----
+
+$btn-primary-color:            $brand-secondary;
+$btn-secondary-color:          #777;
+$btn-secondary-border:         #777;
+
+$btn-padding-x:                  1.2rem !default;
+$btn-padding-y:                  1rem !default;
+$btn-padding-x-sm:               1rem !default;
+$btn-padding-y-sm:               .5rem !default;
+$btn-padding-x-lg:               1rem !default;
+$btn-padding-y-lg:               1rem !default;
+$btn-block-spacing-y:            .5rem !default;
+$btn-toolbar-margin:             .5rem !default;
+
+// Card
+// -----
+
+$card-border-width:            0 !default;
+$card-border-radius:           8px;
+
+// Table
+// -----
+
+$table-cell-padding:            1.5rem !default;
+$table-border-color:            #ddd !default;
+
+// Form
+// -----
+
+$form-group-margin-bottom:      $spacer-y * 2 !default;
+$input-padding-x:                1rem !default;
+$input-padding-y:                1rem !default;
+
+// Cards
+// -----
+$card-border-radius:            0 !default;
+
+// Dropdown
+// -----
+$dropdown-padding-y:             5px !default;
+$dropdown-margin-top:            2px !default;
+$dropdown-item-padding-x:        20px !default;
+
+// Nav
+// -----
+
+$nav-pills-border-radius:       0 !default;
+$nav-pills-active-link-color:   $body-color !default;
+$nav-pills-active-link-bg:      transparent !default;
+
+// Navbar
+// ------
+
+$navbar-border-radius:              0 !default;
+$navbar-padding-x:                  $spacer !default;
+$navbar-padding-y:                  ($spacer / 2) !default;
+$navbar-brand-padding-y:            .25rem !default;
+
+// Tags
+// -----
+
+$tag-font-size:             .9rem !default;
+$tag-font-weight:           normal !default;
+$tag-padding-x:             $spacer-x !default;
+$tag-padding-y:             $spacer-y / 2.5 !default;
+$tag-pill-padding-x:        $spacer-x;
+
+
+// Pagination
+// -----
+
+$pagination-bg:                        #dcdcdc !default;
+$pagination-border-color:              #dcdcdc !default;
+$pagination-active-color:              $brand-secondary !default;
+$pagination-active-bg:                 $brand-primary !default;
+$pagination-active-border:             $brand-primary !default;
+
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: (
+  25: 25%,
+  33: 33%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+) !default;
+

@@ -1,0 +1,30 @@
+.row.mt-3
+  .col-md-8
+    = form_for @qn, url: url do |f|
+      = f.text_parts   :name, add_class: :required, input: { placeholder: "#{Qn.model_name.human}を入力" }
+      = f.textarea_parts   :description, input: { placeholder: "回答時に表示する文言を記入"}
+      = f.text_parts   :from, input: { placeholder: "例: 国家試験 第10回 問23 とか" }
+      .form-group.text-xs-center
+        = link_to subject_section_path(subject_id: @subject.id, id: @section.id), class: 'btn btn-outline-secondary m-r-q' do
+          = t('base.actions.back')
+        = f.submit t('base.actions.save'), class: 'btn btn-outline-primary p-x-3'
+  
+      - if page == :edit
+        = render 'shared/delete_link', path: subject_section_qn_path(subject_id:@subject.id, section_id:@section.id, id:@qn.id), clazz: @qn
+
+
+- if page == :edit
+  .mb-1.mt-3
+    .fr= link_to Q.model_name.human + t('base.actions.new'), new_subject_section_qn_q_path(subject_id:@subject.id, section_id: @section.id, qn_id: @qn.id), class: 'btn btn-outline-primary p-x-3'
+    .clearfix
+
+  .table-responsive
+    table.table.table-striped.table-bordered.table-hover
+      thead
+        tr
+          th= Q.human_attribute_name(:name)
+      tbody
+        - @qn.qs.each do | q |
+          tr
+            td= link_to q.name, edit_subject_section_qn_q_path(subject_id:@subject.id, section_id: @section.id, qn_id: @qn.id, id: q.id)
+            /td= link_to t('base.actions.show'), subject

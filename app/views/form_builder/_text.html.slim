@@ -1,0 +1,8 @@
+.form-group[class="#{(f.object.errors.include?(col) ? 'has-error' : '')} #{opts[:add_class]}"]
+  = f.label col, { class: "control-label" }
+  = f.text_field col, { class: "form-control"}.merge(opts[:input]||{})
+  - if f.object.errors.full_messages_for(col).empty? && opts[:message].present?
+    p.help-block= opts[:message]
+  - else
+    - f.object.errors.full_messages_for(col).each do |message|
+      p.help-block= message

@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      section: &section 分類
+    attributes:
+      section:
+        id: ID
+        name: 名前

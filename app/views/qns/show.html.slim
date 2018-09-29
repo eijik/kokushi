@@ -1,0 +1,25 @@
+.page-header
+  .mb-1.mt-3
+    h5.fl= @qn.name
+    /.fr.m-l-q= link_to new_subject_section_qn_q_path(subject_id:@subject, section_id: @section, qn_id:@qn.id), class: 'btn btn-primary' do
+      span.glyphicon.glyphicon-plus
+        = t('base.actions.new')
+    /.fr= link_to subject_section_path(subject_id:@subject, id: @section), class: 'btn btn-secondary' do
+      span.glyphicon.glyphicon-plus
+        = t('base.actions.back')
+    .clearfix
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    /thead
+      tr
+        th= Q.human_attribute_name(:name)
+    tbody
+      - @qn.qs.each do | q |
+        tr
+          td= link_to q.name, edit_subject_section_qn_q_path(subject_id:@subject.id, section_id: @section.id, qn_id: @qn.id, id: q.id)
+          /td= link_to t('base.actions.show'), subject
+
+.ce= link_to subject_section_path(subject_id:@subject, id: @section), class: 'btn btn-outline-primary' do
+  span.glyphicon.glyphicon-plus
+    = t('base.actions.answer')

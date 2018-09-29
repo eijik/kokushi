@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      qn: 質問
+    attributes:
+      qn:
+        id: ID
+        name: 質問名
+        description: 解説
+        from: 出元

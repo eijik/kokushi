@@ -1,0 +1,21 @@
+- @breadcrumb = [{name: @subject.name, link: subject_path(id:@subject.id)}, {name: @section.name, link:subject_section_path(subject_id:@subject.id, id:@section.id)}]
+.page-header
+  .mb-1.mt-3
+    h4= '出題' + t('base.actions.index')
+
+.qns-index
+  .qns-outer.ml-5.mt-5
+    - @qns.each do |qn|
+      .qn.mb-3.mt-5
+        = link_to subject_section_qn_path(subject_id:@subject.id, section_id:@section.id, id:qn.id) do
+          .fl.mr-5.mb-2
+            .from= qn.from
+            .name= qn.name
+            ol.qs.ml-2.mt-1
+              - qn.qs.each do |q|
+                li.q= q.name
+          .fl
+            .description
+              .text【解説】
+              .desctiption=qn.description
+          .clearfix

@@ -1,0 +1,10 @@
+ruby:
+  opts[:class] ||= "form-control"
+
+.form-group.double-text[class="#{(f.object.errors.include?(opts[:col1])||f.object.errors.include?(opts[:col2]) ? 'has-error' : '')} #{opts[:add_class]}"]
+  = f.label col, { class: "control-label col-sm-3" }
+  .col-sm-9
+    = f.text_field opts[:col1], opts
+    = f.text_field opts[:col2], opts
+    - [f.object.errors.full_messages_for(opts[:col1]),f.object.errors.full_messages_for(opts[:col2])].flatten.each do |message|
+      p.help-block= message

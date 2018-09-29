@@ -1,0 +1,7 @@
+/- @breadcrumb = [{name: @subject.name, link: subject_path(id:@subject.id)}, {name: @section.name, link:subject_section_path(subject_id:@subject.id, id:@section.id)}]
+- @breadcrumb = [{name: @subject.name, link: subject_path(id:@subject.id)}, {name: @section.name}]
+.page-header
+  .mb-1.mt-3
+    h3= Section.model_name.human + t('base.actions.new')
+
+= render 'form', url: subject_sections_path, page: :new

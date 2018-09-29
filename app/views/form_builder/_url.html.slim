@@ -1,0 +1,9 @@
+.form-group[class="#{(f.object.errors.include?(col) ? 'has-error' : '')}"]
+  = f.label col, { class: "control-label" }
+  .input-group
+    .input-group-addon
+      = opts[:url_prefix]
+    = f.text_field col, { class: "form-control"}
+  - if f.object.errors.full_messages_for(col).present?
+    - f.object.errors.full_messages_for(col).each do |message|
+      p.help-block= message

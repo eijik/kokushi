@@ -1,0 +1,19 @@
+-# main
+.form-group[class="#{(f.object.errors.include?(col) ? 'has-error' : '')} #{opts[:add_class]}"]
+  = f.label col, { class: "control-label" }
+  .radio
+    - if opts[:values].present?
+      - opts[:values].each do |s|
+        label
+          = f.radio_button col, s[1]
+          = s[0]
+    - else
+      - f.object.class.send(col).options.each do |s|
+        label
+          = f.radio_button col, s[1]
+          = s[0]
+    - if f.object.errors.full_messages_for(col).empty?
+      p.help-block= opts[:message] || t("activerecord.description.#{f.object.model_name.singular}.#{col}")
+    - else
+      - f.object.errors.full_messages_for(col).each do |message|
+        p.help-block= message
