@@ -1,15 +1,14 @@
 /- @breadcrumb = [{name: @subject.name, link: subject_path(id:@subject.id)}, {name: @section.name, link:subject_section_path(subject_id:@subject.id, id:@section.id)}]
 - @breadcrumb = [{name: @subject.name, link: subject_path(id:@subject.id)}, {name: @section.name}]
 .page-header
-  .mb-1.mt-3
-    h3.fl= Qn.model_name.human + t('base.actions.index')
-    .fr.m-l-q= link_to new_subject_section_qn_path(subject_id:@subject, section_id: @section), class: 'btn btn-outline-primary' do
-      span.glyphicon.glyphicon-plus
-        = t('base.actions.new')
-    .fr.m-l-q= link_to subject_section_qns_path(subject_id:@subject, section_id: @section), class: 'btn btn-outline-primary' do
-      span.glyphicon.glyphicon-plus
-        = '出題' + t('base.actions.index')
-    .clearfix
+  h4.fl= Qn.model_name.human + t('base.actions.index')
+  .fr.m-l-q= link_to new_subject_section_qn_path(subject_id:@subject, section_id: @section), class: 'btn btn-outline-primary' do
+    span.glyphicon.glyphicon-plus
+      = t('base.actions.new')
+  .fr.m-l-q= link_to subject_section_qns_path(subject_id:@subject, section_id: @section), class: 'btn btn-outline-primary' do
+    span.glyphicon.glyphicon-plus
+      = Qn.model_name.human + t('base.actions.index')
+  .clearfix
 
 .table-responsive
   table.table.table-striped.table-bordered.table-hover

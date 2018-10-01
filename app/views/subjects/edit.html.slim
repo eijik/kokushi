@@ -1,5 +1,4 @@
 .page-header
-  .mb-1.mt-3
-    h3= Subject.model_name.human + t('base.actions.edit')
+  h4= Subject.model_name.human + t('base.actions.edit')
 
 = render 'form', url:subject_path(@subject), page: :edit

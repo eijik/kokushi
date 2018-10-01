@@ -1,14 +1,13 @@
 - @breadcrumb = [{name: @subject.name, link: subject_path(id:@subject.id)}]
 .page-header
-  .mb-1.mt-3
-    h3.fl= Section.model_name.human
-    .fr.m-l-q= link_to new_subject_section_path(subject_id:@subject), class: 'btn btn-outline-primary' do
-      span.glyphicon.glyphicon-plus
-        = t('base.actions.new')
-    .fr= link_to subjects_path, class: 'btn btn-outline-secondary' do
-      span.glyphicon.glyphicon-plus
-        = t('base.actions.back')
-    .clearfix
+  h4.fl= Section.model_name.human
+  .fr.m-l-q= link_to new_subject_section_path(subject_id:@subject), class: 'btn btn-outline-primary' do
+    span.glyphicon.glyphicon-plus
+      = t('base.actions.new')
+  /.fr= link_to subjects_path, class: 'btn btn-outline-secondary' do
+    span.glyphicon.glyphicon-plus
+      = t('base.actions.back')
+  .clearfix
 
 .table-responsive
   table.table.table-striped.table-bordered.table-hover

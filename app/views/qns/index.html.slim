@@ -1,21 +1,19 @@
 - @breadcrumb = [{name: @subject.name, link: subject_path(id:@subject.id)}, {name: @section.name, link:subject_section_path(subject_id:@subject.id, id:@section.id)}]
+- @back_path = subject_section_path(subject_id: @subject.id, id: @section.id)
 .page-header
-  .mb-1.mt-3
-    h4= '出題' + t('base.actions.index')
+  h4= Qn.model_name.human + t('base.actions.index')
 
-.qns-index
-  .qns-outer.ml-5.mt-5
-    - @qns.each do |qn|
-      .qn.mb-3.mt-5
-        = link_to subject_section_qn_path(subject_id:@subject.id, section_id:@section.id, id:qn.id) do
-          .fl.mr-5.mb-2
-            .from= qn.from
-            .name= qn.name
-            ol.qs.ml-2.mt-1
-              - qn.qs.each do |q|
-                li.q= q.name
-          .fl
-            .description
-              .text【解説】
-              .desctiption=qn.description
-          .clearfix
+.mt-3
+  - @qns.each do |qn|
+    .row.pb-3.pt-2 style='border-top: solid 1px #ccc;'
+      .col-4
+        .from.text-black-50 style="font-size:0.8rem;"= qn.from
+        .name= qn.name
+        ol.qs.mt-1
+          - qn.qs.each do |q|
+            li.q= q.name
+      .col-8
+        .description
+          .desctiption style='font-size: 0.8rem; white-space:pre-wrap;' = qn.description
+
+      /.clearfix

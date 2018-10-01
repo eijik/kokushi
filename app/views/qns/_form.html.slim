@@ -1,3 +1,4 @@
+- @back_path = subject_section_path(subject_id: @subject.id, id: @section.id)
 .row.mt-3
   .col-md-12
     = form_for @qn, url: url do |f|
@@ -5,7 +6,7 @@
       = f.textarea_parts            :description, input: { placeholder: "回答時に表示する文言を記入", rows:'8'}
       = f.text_parts                       :from, input: { placeholder: "例: 国家試験 第10回 問23 とか" }
       .form-group.text-xs-center
-        = link_to subject_section_path(subject_id: @subject.id, id: @section.id), class: 'btn btn-outline-secondary m-r-q' do
+        /= link_to subject_section_path(subject_id: @subject.id, id: @section.id), class: 'btn btn-outline-secondary m-r-q' do
           = t('base.actions.back')
         = f.submit t('base.actions.save'), class: 'btn btn-outline-primary p-x-3'
   

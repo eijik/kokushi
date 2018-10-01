@@ -1,5 +1,5 @@
 - @breadcrumb = [{name: @subject.name, link: subject_path(id:@subject.id)}, {name: @section.name, link:subject_section_path(subject_id:@subject.id, id:@section.id)}, {name: @qn.name}]
 .page-header
-  .mb-1.mt-3
-    h3= Qn.model_name.human + t('base.actions.edit')
+  h4= Qn.model_name.human + t('base.actions.edit')
+
 = render 'form', url: subject_section_qn_path, page: :edit

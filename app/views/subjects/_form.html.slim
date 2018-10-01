@@ -1,10 +1,11 @@
+- @back_path = subjects_path
 .row
   .col-md-8
     = form_for @subject, url: url do |f|
       = f.text_parts   :name, add_class: :required, input: { placeholder: "#{Subject.model_name.human}を入力" }
 
       .form-group.text-xs-center
-        = link_to subjects_path, class: 'btn btn-outline-secondary m-r-q' do
+        /= link_to subjects_path, class: 'btn btn-outline-secondary m-r-q' do
           = t('base.actions.back')
         = f.submit t('base.actions.save'), class: 'btn btn-outline-primary p-x-3'
   

@@ -33,11 +33,11 @@ html
             span.glyphicon.glyphicon-plus
               = t('base.actions.back')
 
-    .container.mt-3
+    .container
       - @breadcrumb ||= nil
       - if @breadcrumb
-        .page-header
-          .mb-1.mt-3
+        .layout-breadcrumb
+          .mt-1
             - @breadcrumb.each.with_index(1) do |bc, i|
               - if !bc[:link].nil?
                 span = link_to bc[:name], bc[:link]

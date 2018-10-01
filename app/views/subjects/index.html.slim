@@ -1,10 +1,9 @@
 .page-header
-  .mb-1.mt-3
-    h3.fl= Subject.model_name.human + t('base.actions.index')
-    .fr= link_to new_subject_path, class: 'btn btn-outline-primary' do
-      span.glyphicon.glyphicon-plus
-        = t('base.actions.new')
-    .clearfix
+  h4.fl= Subject.model_name.human + t('base.actions.index')
+  .fr= link_to new_subject_path, class: 'btn btn-outline-primary' do
+    span.glyphicon.glyphicon-plus
+      = t('base.actions.new')
+  .clearfix
 
 .table-responsive
   table.table.table-striped.table-bordered.table-hover
