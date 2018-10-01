@@ -27,7 +27,12 @@ html
             li.nav-item
               =link_to 'ユーザ一覧', '#', class:'nav-link'
               /=link_to User.model_name.human, users_path, class:'nav-link'
-            
+        - @back_path ||= nil
+        - if @back_path
+          = link_to @back_path, class: 'btn btn-outline-secondary' do
+            span.glyphicon.glyphicon-plus
+              = t('base.actions.back')
+
     .container.mt-3
       - @breadcrumb ||= nil
       - if @breadcrumb

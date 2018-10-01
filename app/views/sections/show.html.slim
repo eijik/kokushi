@@ -16,15 +16,15 @@
     thead
       tr
         th= Qn.human_attribute_name(:name)
-        /th= Qn.human_attribute_name(:from)
-        /th= t('base.datetime.created_at')
+        th= t('views.section.ans_count')
+        th= t('views.section.ans_percent')
         th
     tbody
       - @section.qns.each do | qn |
         tr
           /td= link_to qn.name, subject_section_qn_path(subject_id:@subject.id, section_id: @section.id, id:qn.id)
           td= link_to qn.name, subject_section_qn_path(subject_id:@subject.id, section_id: @section.id, id:qn.id)
-          /td= qn.from
-          /td= l(qn.created_at, format: :short)
+          td= @ans_count[qn.id]
+          td= @ans_percent
           td= link_to t('base.actions.edit'), edit_subject_section_qn_path(subject_id:@subject.id, section_id: @section.id, id:qn.id)
  

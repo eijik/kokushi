@@ -12,10 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2018_07_16_035758) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "ans", force: :cascade do |t|
+  create_table "ans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "qn_id"
     t.integer "q_id"
     t.boolean "correct_flg"
@@ -23,32 +21,32 @@ ActiveRecord::Schema.define(version: 2018_07_16_035758) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "qns", force: :cascade do |t|
+  create_table "qns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "section_id"
     t.string "name"
     t.string "description"
-    t.integer "correct_q_id"
     t.integer "user_id"
     t.string "from"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "qs", force: :cascade do |t|
+  create_table "qs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "qn_id"
     t.string "name"
+    t.boolean "correct_flg", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "sections", force: :cascade do |t|
+  create_table "sections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "subject_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "subjects", force: :cascade do |t|
+  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -10,6 +10,11 @@ class SectionsController < ApplicationController
 
   # GET /sections/1
   def show
+    # あとで追加: 
+    #  ユーザで絞り込む
+    #  sectionで絞り込む
+    @ans_count = An.group(:qn_id).count
+    #@ans_percent = An
   end
 
   # GET /sections/new

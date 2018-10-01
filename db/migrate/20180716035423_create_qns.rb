@@ -3,8 +3,7 @@ class CreateQns < ActiveRecord::Migration[5.2]
     create_table :qns do |t|
       t.integer :section_id
       t.string :name
-      t.string :description
-      t.integer :correct_q_id
+      t.text :description
       t.integer :user_id
       t.string :from
 

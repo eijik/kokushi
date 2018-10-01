@@ -1,0 +1,45 @@
+
+$iconColor: #53b300;
+
+.qn-answer {
+  input[type=radio], input[type=checkbox] {
+    display: none;
+  }
+
+  .checkbox {
+    position: relative;
+    display: inline-block;
+    margin: 0 20px 8px 0;
+    padding: 12px 12px 12px 42px;
+    /*border-radius: 8px;*/
+    /*background-color: #f6f7f8;*/
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:before {
+      position: absolute;
+      top: 45%;
+      left: 16px;
+      display: block;
+      margin-top: -7px;
+      width: 9px;
+      height: 14px;
+      border-right: 3px solid $iconColor;
+      border-bottom: 3px solid $iconColor;
+      content: '';
+      opacity: 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+  input[type=checkbox]:checked + .checkbox:before {
+    opacity: 1;
+  }
+}
+
+.not_correct{
+  background: $gray-light; 
+  color: $gray;
+}
+

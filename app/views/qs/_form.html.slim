@@ -2,12 +2,13 @@
   .col-md-8
     = form_for @q, url: url do |f|
       = f.text_parts   :name, add_class: :required, input: { placeholder: "#{Q.model_name.human}を入力" }
+      = f.check_parts :correct_flg, label_name: 'この選択肢は正解'
 
       .form-group.text-xs-center
         - back_path = edit_subject_section_qn_path(subject_id: @subject.id, section_id: @section.id, id:@qn.id)
-        = link_to back_path, class: 'btn btn-secondary m-r-q' do
+        = link_to back_path, class: 'btn btn-outline-secondary m-r-q' do
           = t('base.actions.back')
-        = f.submit t('base.actions.save'), class: 'btn btn-primary p-x-3'
+        = f.submit t('base.actions.save'), class: 'btn btn-outline-primary p-x-3'
   
       - if page == :edit
         = render 'shared/delete_link', path: subject_section_qn_q_path(subject_id:@subject.id, section_id:@section.id, qn_id:@qn.id, id:@q.id), clazz: @q

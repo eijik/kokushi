@@ -20,7 +20,7 @@ class SubjectsController < ApplicationController
 
     if @subject.save
       flash['notice'] = Subject.model_name.human + I18n.t('base.flash.created')
-      redirect_to subject_path
+      redirect_to subjects_path
     else
       render :new
     end

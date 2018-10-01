@@ -76,6 +76,6 @@ class QsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def q_params
-      params.fetch(:q, {}).permit(:name, :qn_id)
+      params.fetch(:q, {}).permit(:name, :qn_id, :correct_flg)
     end
 end

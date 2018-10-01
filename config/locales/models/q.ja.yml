@@ -6,3 +6,4 @@ ja:
       q:
         id: ID
         name: 選択肢
+        correct_flg: 正解

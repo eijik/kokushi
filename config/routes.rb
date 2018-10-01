@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   resources :subjects do
     resources :sections do
       resources :qns do
+        member do
+          patch :answer
+          get :result
+        end
         resources :qs do
         end
       end

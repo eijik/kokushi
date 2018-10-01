@@ -1,0 +1,37 @@
+- n = 0
+- qns = params[:qn_ids]&.split(',')&.map{|e|e.to_i}&.sort!
+- @back_path = subject_section_path(subject_id:@subject, id: @section)
+
+.page-header
+  .mb-1.mt-3
+    h5= "Q. #{@qn.name}"
+
+.form.qn-answer
+  = form_for @qn, url: answer_subject_section_qn_path(subject_id:@subject, section_id:@section, id: @qn) do |f|
+    .table-responsive
+      table.table.table-striped.table-bordered.table-hover
+        tbody
+          = f.fields_for :qs do |q|
+            - n += 1
+            - clz = page==:result && !q.object.correct_flg ? 'not_correct' : ''
+            tr class=clz
+              td.p-0 class= clz
+                = q.check_box :an_flg, {checked: qns&.include?(q.object.id), disabled: page==:result}
+                = q.label :an_flg, class:'p-3 m-0 w-100 checkbox'
+                  .ml-4
+                    = "#{n}. "
+                    = q.object.name
+    
+    - if page == :show
+      .mx-auto.c2
+        span.glyphicon.glyphicon-plus
+          = f.submit t('base.actions.answer'), class: 'btn btn-outline-primary'
+    - else
+      - if params[:qn_ids]
+        - tf = qns == @qn.qs.map{|q|q.id if q.correct_flg}.compact
+        .alert class="alert-#{tf ? 'success' : 'danger'}" role="alert"
+          = tf ? '正解！' : '不正解'
+      .m-1 style='white-space:pre-wrap;'
+        = @qn.description
+
+
